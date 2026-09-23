@@ -226,7 +226,7 @@
             Controls.Add(label);
             Controls.Add(dgvClientes);
             Name = "Form1";
-            Text = "Apellidos";
+            Text = "Gestión de Clientes";
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
             PerformLayout();
