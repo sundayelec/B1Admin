@@ -25,21 +25,28 @@ namespace WinFormsApp1
             {
                 using (var db = new EmpresaContext())
                 {
-                    bool conectado = db.Database.CanConnect();
-
-                    if (conectado)
+                    if (db.Database.CanConnect())
                     {
-                        //MessageBox.Show("¡Conexión con MySQL correcta!");
+                        MessageBox.Show("Conexión con MySQL correcta.");
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo conectar con MySQL.");
+                        MessageBox.Show(
+                            "No se pudo conectar con la base de datos.",
+                            "Error de conexión",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(
+                    "No se pudo conectar con la base de datos.\n\n" +
+                    "Compruebe que MySQL esté funcionando.",
+                    "Error de conexión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
         private void CargarClientes()
