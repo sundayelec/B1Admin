@@ -8,9 +8,14 @@ namespace WinFormsApp1
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            string password = Environment.GetEnvironmentVariable("B1ADMIN_DB_PASSWORD");
+
+            string connectionString =
+                $"server=localhost;database=empresa;user=b1admin;password={password};";
+
             optionsBuilder.UseMySql(
-                "server=localhost;database=empresa;user=root;password=B1Admin;",
-                ServerVersion.AutoDetect("server=localhost;database=empresa;user=root;password=B1Admin;")
+                connectionString,
+                ServerVersion.AutoDetect(connectionString)
             );
         }
     }
